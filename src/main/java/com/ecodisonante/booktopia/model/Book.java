@@ -18,10 +18,9 @@ public class Book {
     @Column(name = "title")
     private String title;
     @Column(name = "author")
-    private String autor;
+    private String author;
     @Column(name = "year")
     private int year;
     @Column(name = "genre")
     private String genre;
-
 }
