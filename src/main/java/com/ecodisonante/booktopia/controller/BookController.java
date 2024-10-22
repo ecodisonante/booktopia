@@ -1,8 +1,5 @@
 package com.ecodisonante.booktopia.controller;
 
-
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +17,9 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping
-    public List<Book> getAllBooks() {
-        return bookService.getAllBooks();
+    public ResponseEntity<List<Book>> getAllBooks() {
+        return ResponseEntity.ok().body(bookService.getAllBooks());
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> obtenerBookPorId(@PathVariable Long id) {
@@ -33,8 +29,8 @@ public class BookController {
     }
 
     @PostMapping
-    public Book addBook(@RequestBody Book book) {
-        return bookService.addBook(book);
+    public ResponseEntity<Book> addBook(@RequestBody Book book) {
+        return ResponseEntity.ok().body(bookService.addBook(book));
     }
 
     @PutMapping("/{id}")
