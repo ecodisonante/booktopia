@@ -13,8 +13,12 @@ import com.ecodisonante.booktopia.service.BookService;
 @RequestMapping("/api/books")
 public class BookController {
 
-    @Autowired
     private BookService bookService;
+    
+    @Autowired
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Book>> getAllBooks() {
